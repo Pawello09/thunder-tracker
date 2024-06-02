@@ -2,11 +2,13 @@ import requests
 import json
 
 stationId = -1
+serverURL = ""
 with open("settings.json", "r") as f:
     stationId = int(json.load(f).get("stationId"))
+    serverURL = json.load(f).get("serverURL")
 
 def upload(lon, lat, time):
-    answer = requests.get("http://127.0.0.1:5000/upload", {"id": stationId, "lon": lon, "lat": lat, "time": time})
+    answer = requests.get(f"{serverURL}upload", {"id": stationId, "lon": lon, "lat": lat, "time": time})
     if answer.raw == 'Thanks for uploading data!':
         return True
     return False
