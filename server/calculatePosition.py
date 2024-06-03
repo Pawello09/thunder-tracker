@@ -4,7 +4,7 @@ from math import sin, cos, sqrt, atan2, radians
 
 spSound = 0.343 #meters/milisecond
 
-h1, h2, h3, k1, k2, k3, a, b, c = 0
+h1 = h2 = h3 = k1 = k2 = k3 = a = b = c = 0 # looks odd lol
 
 def calcDist(lat1, lon1, lat2, lon2):
     R = 6373000.0

@@ -4,7 +4,7 @@ from pymongo.server_api import ServerApi
 import json
 
 uri = ""
-with open("secret.json", "r") as f:
+with open("server/secret.json", "r") as f:
     uri = json.load(f).get("uri")
 
 monClient = MongoClient(uri, server_api=ServerApi('1'))

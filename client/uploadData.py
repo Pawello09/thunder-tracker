@@ -3,7 +3,7 @@ import json
 
 stationId = -1
 serverURL = ""
-with open("settings.json", "r") as f:
+with open("client/settings.json", "r") as f:
     stationId = int(json.load(f).get("stationId"))
     serverURL = json.load(f).get("serverURL")
 
