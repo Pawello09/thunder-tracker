@@ -1,5 +1,5 @@
 import graphics.generateMap as gM
-import server.calculatePosition as calcP
+import calculatePosition as calcP
 
 lat = []
 lon = []
