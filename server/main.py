@@ -2,9 +2,10 @@ from flask import Flask, request
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import json
+import os
 
 uri = ""
-with open("server/secret.json", "r") as f:
+with open(f"{os.path.dirname(__file__)}/secret.json", "r") as f:
     uri = json.load(f).get("uri")
 
 monClient = MongoClient(uri, server_api=ServerApi('1'))

@@ -1,6 +1,7 @@
 import folium
 import json
 import webbrowser
+import os
 
 def generateMap(strike_pos, mic_pos, mic_time_offset):
     zoom_start = 0
@@ -9,7 +10,7 @@ def generateMap(strike_pos, mic_pos, mic_time_offset):
     mic_icon = ""
     lightning_icon = ""
 
-    with open("graphics/styles.json", "r") as f:
+    with open(f"{os.path.dirname(__file__)}/styles.json", "r") as f:
         data = json.load(f)
 
         zoom_start = data.get("zoom_start", zoom_start)

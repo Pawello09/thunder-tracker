@@ -1,9 +1,10 @@
 import requests
 import json
+import os
 
 stationId = -1
 serverURL = ""
-with open("client/settings.json", "r") as f:
+with open(f"{os.path.dirname(__file__)}/settings.json", "r") as f:
     stationId = int(json.load(f).get("stationId"))
     serverURL = json.load(f).get("serverURL")
 
