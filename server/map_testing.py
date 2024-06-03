@@ -6,8 +6,8 @@ lon = []
 t = []
 
 for i in range(3):
-    lat.append(int(input(f"Latitude {i+1}: ")))
-    lon.append(int(input(f"Longitude {i+1}: ")))
+    lat.append(float(input(f"Latitude {i+1}: ")))
+    lon.append(float(input(f"Longitude {i+1}: ")))
     t.append(int(input(f"Time {i+1}: ")))
 
     print(" --- ")
