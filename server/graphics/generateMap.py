@@ -21,6 +21,17 @@ def generateMap(strike_pos, mic_pos, mic_time_offset):
 
     m = folium.Map(location=strike_pos, zoom_start=zoom_start)
 
+    marker = folium.Marker(location=strike_pos, tooltip="Lightning strike!")
+    marker.add_to(m)
+    marker_data = {
+        "prefix": "fa",
+        "color": lightning_icon_color,
+        "icon": lightning_icon,
+        "angle": 0
+    }
+    icon = folium.Icon(**marker_data)
+    marker.add_child(icon)
+
     marker_data = {
         "prefix": "fa",
         "color": mic_icon_color,
@@ -32,17 +43,12 @@ def generateMap(strike_pos, mic_pos, mic_time_offset):
         marker.add_to(m)
         icon = folium.Icon(**marker_data)
         marker.add_child(icon)
-
-    marker = folium.Marker(location=strike_pos, tooltip="Lightning strike!")
-    marker.add_to(m)
-    marker_data = {
-        "prefix": "fa",
-        "color": lightning_icon_color,
-        "icon": lightning_icon,
-        "angle": 0
-    }
-    icon = folium.Icon(**marker_data)
-    marker.add_child(icon)
+        line = folium.PolyLine(
+            locations=[mic_pos[i], strike_pos],
+            color="red",
+            weight=3
+        )
+        line.add_to(m)
 
     m.save("map.html")
     webbrowser.open("map.html") # it's a bit primitive, but works, right?
