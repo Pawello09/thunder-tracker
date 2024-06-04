@@ -4,8 +4,6 @@ from math import sin, cos, sqrt, atan2, radians
 
 spSound = 0.343 #meters/milisecond
 
-h1 = h2 = h3 = k1 = k2 = k3 = a = b = c = 0 # looks odd lol
-
 def calcDist(lat1, lon1, lat2, lon2):
     R = 6373000.0
     lat1 = radians(lat1)
@@ -27,6 +25,7 @@ def equations(vars):
     return [eq1, eq2, eq3]
 
 def calculatePosition(lat1, lon1, time1, lat2, lon2, time2, lat3, lon3, time3):
+    global h1, k1, h2, k2, h3, k3, a, b, c
     h1 = lat1
     k1 = lon1
     h2 = lat2

@@ -19,7 +19,7 @@ position = calcP.calculatePosition(
 )
 
 gM.generateMap(
-    [position[0], position[2]], # not ready for 3D yet
+    [position[0], position[1]],
     [
         [lat[0], lon[0]],
         [lat[1], lon[1]],
